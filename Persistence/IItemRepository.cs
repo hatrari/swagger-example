@@ -8,8 +8,8 @@ namespace Items.Persistence
   {
     void Add(Item item);
     IEnumerable<Item> GetAll();
-    Item GetBy(Guid id);
-    void Remove(Guid id);
+    Item GetBy(int id);
+    void Remove(int id);
     void Update(Item item);
   }
 }

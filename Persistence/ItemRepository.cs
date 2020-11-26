@@ -16,8 +16,8 @@ namespace Items.Persistence
       _context.SaveChanges();
     }
     public IEnumerable<Item> GetAll() => _context.Items.ToList();
-    public Item GetBy(Guid id) => _context.Items.FirstOrDefault(i => i.Id == id);
-    public void Remove(Guid id)
+    public Item GetBy(int id) => _context.Items.FirstOrDefault(i => i.Id == id);
+    public void Remove(int id)
     {
       Item item = GetBy(id);
       _context.Remove(item);
