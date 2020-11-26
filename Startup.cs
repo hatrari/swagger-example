@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Items.Persistence;
+using Items.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Items
 {
@@ -25,6 +22,8 @@ namespace Items
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IItemRepository, ItemRepository>();
+            services.AddDbContext<ItemsContext>(opt => opt.UseInMemoryDatabase("items"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
