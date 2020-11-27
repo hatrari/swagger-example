@@ -37,8 +37,9 @@ namespace Items.Controllers
       Item oldItem = _itemRepository.GetBy(item.Id);
       if (oldItem == null)
           return NotFound();
-
-      _itemRepository.Update(item);
+      
+      oldItem.Name = item.Name;
+      _itemRepository.Update(oldItem);
       return new NoContentResult();
     }
 
