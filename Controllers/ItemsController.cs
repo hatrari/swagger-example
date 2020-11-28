@@ -28,7 +28,7 @@ namespace Items.Controllers
       
       _itemRepository.Add(item);
 
-      return StatusCode(201, Json(true));
+      return Ok(item);
     }
 
     [HttpPut]
